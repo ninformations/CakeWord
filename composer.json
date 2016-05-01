@@ -1,0 +1,14 @@
+{
+    "name": "ninformations/cakeword",
+    "description": "WordView for cakephp",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "ninformations",
+            "email": "astami@outlook.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpword": "^0.12.1"
+    }
+}
