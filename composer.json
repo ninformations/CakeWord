@@ -22,6 +22,8 @@
     },
     "require": {
         "phpoffice/phpword": "^0.12.1",
-        "cakephp/plugin-installer": "*"
+        "cakephp/plugin-installer": "*",
+        "cakephp/cakephp": "~3.1",
+        "php": ">=5.4.16"
     }
 }
