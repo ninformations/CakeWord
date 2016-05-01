@@ -1,3 +1,3 @@
 <?php
 use Cake\Routing\Router;
-Router::extensions(['word']);
+Router::extensions(['docx']);

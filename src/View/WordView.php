@@ -61,6 +61,6 @@ class WordView extends View
      */
     public function getFilename()
     {
-        return Inflector::slug(str_replace('.word', '', $this->request->url)) . '.word';
+        return Inflector::slug(str_replace('.docx', '', $this->request->url)) . '.doc';
     }
 }
