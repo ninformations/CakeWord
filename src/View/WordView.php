@@ -105,4 +105,36 @@ class WordView extends View
 
         return ob_get_clean();
     }
+
+    /**
+     * @return PhpWord
+     */
+    public function getPhpWord()
+    {
+        return $this->phpWord;
+    }
+
+    /**
+     * @param PhpWord $phpWord
+     */
+    public function setPhpWord($phpWord)
+    {
+        $this->phpWord = $phpWord;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubDir()
+    {
+        return $this->subDir;
+    }
+
+    /**
+     * @param string $subDir
+     */
+    public function setSubDir($subDir)
+    {
+        $this->subDir = $subDir;
+    }
 }
