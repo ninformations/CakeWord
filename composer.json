@@ -1,5 +1,6 @@
 {
     "name": "ninformations/cakeword",
+    "type": "cakephp-plugin",
     "description": "WordView for cakephp",
     "license": "Apache 2.0",
     "authors": [
