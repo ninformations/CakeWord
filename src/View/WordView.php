@@ -137,4 +137,25 @@ class WordView extends View
     {
         $this->subDir = $subDir;
     }
+
+
+    /**
+     * Utility function for template mapping
+     *
+     * @param $array
+     * @param string $prefix
+     * @return array
+     */
+    public function flatten($array, $prefix = '') {
+        $result = array();
+        foreach($array as $key=>$value) {
+            if(is_array($value)) {
+                $result = $result + $this->flatten($value, $prefix . $key . '.');
+            }
+            else {
+                $result[$prefix.$key] = $value;
+            }
+        }
+        return $result;
+    }
 }
