@@ -9,6 +9,17 @@
             "email": "astami@outlook.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "CakeWord\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CakeWord\\Test\\": "tests",
+            "Cake\\Test\\" : "vendor/cakephp/cakephp/test"
+        }
+    },
     "require": {
         "phpoffice/phpword": "^0.12.1",
         "cakephp/plugin-installer": "*"
