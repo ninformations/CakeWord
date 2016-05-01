@@ -7,12 +7,27 @@ use Cake\Network\Request;
 use Cake\Network\Response;
 use Cake\Utility\Inflector;
 use Cake\View\View;
+use PhpOffice\PhpWord\IOFactory;
 
 /**
  * @package  Cake.View
  */
 class WordView extends View
 {
+
+    /**
+     * @var PHPWord
+     */
+    private $phpWord;
+
+    private $filename;
+
+    /**
+     * SubDir Name
+     * @var string
+     */
+    public $subDir = 'docx';
+
     /**
      * Constructor
      *
@@ -34,6 +49,8 @@ class WordView extends View
             $response->type('html');
             return;
         }
+
+        $this->phpWord = new PHPWord();
     }
 
     /**
@@ -49,10 +66,20 @@ class WordView extends View
             return $content;
         }
 
-        $content = 'hello world!!';
+        $content = $this->getContent();
         $this->Blocks->set('content', $content);
         $this->response->download($this->getFilename());
         return $this->Blocks->get('content');
+    }
+
+    /**
+     * Sets the filename
+     * @param string $filename the filename
+     * @return void
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
     }
 
     /**
@@ -61,6 +88,20 @@ class WordView extends View
      */
     public function getFilename()
     {
+        if (!empty($this->filename)) {
+            return $this->filename . '.xlsx';
+        }
+
         return Inflector::slug(str_replace('.docx', '', $this->request->url)) . '.doc';
+    }
+
+    private function getContent()
+    {
+        ob_start();
+
+        $objWriter = IOFactory::createWriter($this->phpWord, 'Word2007');
+        $objWriter->save('php://output');
+
+        return ob_get_clean();
     }
 }
