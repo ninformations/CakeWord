@@ -8,6 +8,7 @@ use Cake\Network\Response;
 use Cake\Utility\Inflector;
 use Cake\View\View;
 use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\PhpWord;
 
 /**
  * @package  Cake.View
